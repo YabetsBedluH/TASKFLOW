@@ -27,7 +27,8 @@ function Login() {
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleLogin}>
-        <h2 className="login-title">Welcome Back</h2>
+        <h2 className="login-title">TaskFlow</h2>
+         <h2 className="login-title">Welcome Back</h2>
 
         <div className="input-group">
           <input

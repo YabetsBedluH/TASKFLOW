@@ -1,0 +1,137 @@
+/* src/pages/Dashboard.css */
+
+.dashboard-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', sans-serif;
+  background: #b1bbe6;
+}
+
+.dashboard-container h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2f3640;
+}
+
+.task-form {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.task-form input {
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 300px;
+  font-size: 1rem;
+}
+
+.task-form button {
+  padding: 0.6rem 1rem;
+  background-color: #0984e3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.task-form button:hover {
+  background-color: #0077cc;
+}
+
+.task-columns {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.column {
+  flex: 1;
+  min-width: 300px;
+  background: #dcdde1;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.column h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #2d3436;
+  font-size: 1.2rem;
+}
+
+.column-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 200px;
+}
+
+.task-card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.task-card p {
+  margin: 0;
+  font-weight: 500;
+  color: #2d3436;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+
+.actions button {
+  padding: 0.4rem 0.7rem;
+  font-size: 0.85rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.actions button:hover {
+  opacity: 0.8;
+}
+
+.actions button:nth-child(1) {
+  background-color: #74b9ff;
+  color: white;
+}
+
+.actions button:nth-child(2) {
+  background-color: #ffeaa7;
+  color: #2d3436;
+}
+
+.actions button:nth-child(3) {
+  background-color: #55efc4;
+  color: #2d3436;
+}
+
+.actions button:last-child {
+  background-color: #ff7675;
+  color: white;
+}
+.delete-btn {
+  background-color: #ff7675;
+  color: white;
+}
