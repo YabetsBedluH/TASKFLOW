@@ -12,7 +12,9 @@ class AuthController < ApplicationController
 
   def login
     user = User.find_by(email: params[:email])
+    #user & the na d sign avoids crash if the use is nil
     if user&.authenticate(params[:password])
+      
       token = JsonWebToken.encode(user_id: user.id)
       render json: { token: token }, status: :ok
     else

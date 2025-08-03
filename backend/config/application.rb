@@ -22,7 +22,7 @@ module Backend
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.0
-    # backend/config/application.rb
+    # makes the jwt auto reload
     config.eager_load_paths << Rails.root.join('lib')
 
 

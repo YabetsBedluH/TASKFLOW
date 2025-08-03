@@ -16,4 +16,12 @@ RSpec.describe User, type: :model do
     user = build(:user, email: "duplicate@example.com")
     expect(user).not_to be_valid
   end
+
+
+  it "is invalid to have short password" do
+  user =build(:user , password:"12345679899")
+  expect(user).not_to be_valid
+  expect(user.errors[:password]).to include("is too short")
+ end
+
 end

@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  #It extracts and verifies the JWT token and sets @current_user.
+  #Without a valid token, the request is rejected with 401 Unauthorized.
   before_action :authorize
 
   def index

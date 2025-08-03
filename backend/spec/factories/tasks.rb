@@ -5,3 +5,6 @@ FactoryBot.define do
     association :user
   end
 end
+#Default task status is "todo".
+
+#You can override this in tests with create(:task, status: "done")

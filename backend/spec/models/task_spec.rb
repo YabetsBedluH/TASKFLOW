@@ -6,8 +6,16 @@ RSpec.describe Task, type: :model do
     expect(task).to be_valid
   end
 
+
+
+
+
+
+
   it "is invalid without title" do
     task = build(:task, title: nil)
     expect(task).not_to be_valid
   end
+
+
 end
