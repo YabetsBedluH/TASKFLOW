@@ -74,17 +74,17 @@ function Dashboard() {
   }
 
   const renderColumn = (label, status) => (
-    <div className="column">
+    <div className="column" data-status={status}>
       <h3>{label}</h3>
       <div className="column-content">
         {tasks.filter(task => task.status === status).map(task => (
           <div key={task.id} className="task-card">
             <p>{task.title}</p>
             <div className="actions">
-              {status !== 'todo' && <button onClick={() => moveTask(task.id, 'todo')}>To Do</button>}
-              {status !== 'doing' && <button onClick={() => moveTask(task.id, 'doing')}>Doing</button>}
-              {status !== 'done' && <button onClick={() => moveTask(task.id, 'done')}>Done</button>}
-              <button className='delete-btn' onClick={() => deleteTask(task.id)}>Delete</button>
+              {status !== 'todo' && <button className="action-btn todo-btn" onClick={() => moveTask(task.id, 'todo')}>To Do</button>}
+              {status !== 'doing' && <button className="action-btn doing-btn" onClick={() => moveTask(task.id, 'doing')}>Doing</button>}
+              {status !== 'done' && <button className="action-btn done-btn" onClick={() => moveTask(task.id, 'done')}>Done</button>}
+              <button className='action-btn delete-btn' onClick={() => deleteTask(task.id)}>Delete</button>
             </div>
           </div>
         ))}
@@ -94,22 +94,29 @@ function Dashboard() {
 
   return (
     <div className="dashboard-container">
-      <h1>Welcome, {user?.email}</h1>
+      <div className="header-section">
+        <h1>Welcome, {user?.email}</h1>
+        <div className="neon-divider"></div>
+      </div>
 
       <form onSubmit={addTask} className="task-form">
-        <input
-          type="text"
-          placeholder="New Task Title"
-          value={newTask}
-          onChange={(e) => setNewTask(e.target.value)}
-        />
-        <button type="submit">Add Task</button>
+        <div className="input-wrapper">
+          <input
+            type="text"
+            placeholder="Enter new task..."
+            value={newTask}
+            onChange={(e) => setNewTask(e.target.value)}
+          />
+        </div>
+        <button type="submit" className="add-btn">
+          <span>Add Task</span>
+        </button>
       </form>
 
       <div className="task-columns">
         {renderColumn('To Do', 'todo')}
-        {renderColumn('Doing', 'doing')}
-        {renderColumn('Done', 'done')}
+        {renderColumn('In Progress', 'doing')}
+        {renderColumn('Completed', 'done')}
       </div>
     </div>
   )

@@ -1,72 +1,190 @@
-/* src/pages/Dashboard.css */
+/* Futuristic Dashboard Styles */
 
 .dashboard-container {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  font-family: 'Segoe UI', sans-serif;
-  background: #b1bbe6;
+  min-height: 100vh;
+  padding: 60rem;
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+  color: #ffffff;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  position: relative;
+  overflow-x: auto;
 }
 
-.dashboard-container h1 {
-  font-size: 1.8rem;
-  font-weight: 600;
+.dashboard-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.header-section {
   text-align: center;
-  margin-bottom: 2rem;
-  color: #2f3640;
+  margin-bottom: 3rem;
+}
+
+.header-section h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #64ffda 0%, #1de9b6 50%, #00bcd4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+}
+
+.neon-divider {
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #64ffda, transparent);
+  margin: 0 auto;
+  box-shadow: 0 0 10px #64ffda;
 }
 
 .task-form {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   flex-wrap: wrap;
+}
+
+.input-wrapper {
+  position: relative;
 }
 
 .task-form input {
-  padding: 0.6rem 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  width: 300px;
+  padding: 1rem 1.5rem;
+  width: 350px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(100, 255, 218, 0.3);
+  border-radius: 12px;
+  color: #ffffff;
   font-size: 1rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.task-form button {
-  padding: 0.6rem 1rem;
-  background-color: #0984e3;
-  color: white;
+.task-form input:focus {
+  outline: none;
+  border-color: #64ffda;
+  box-shadow: 
+    0 0 20px rgba(100, 255, 218, 0.3),
+    0 4px 15px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.task-form input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.add-btn {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #64ffda 0%, #1de9b6 100%);
+  color: #0a0a0f;
   border: none;
-  border-radius: 6px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 4px 15px rgba(100, 255, 218, 0.3),
+    0 2px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
 }
 
-.task-form button:hover {
-  background-color: #0077cc;
+.add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 25px rgba(100, 255, 218, 0.4),
+    0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.add-btn:active {
+  transform: translateY(0);
 }
 
 .task-columns {
-  display: flex;
-  gap: 1rem;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .column {
-  flex: 1;
-  min-width: 300px;
-  background: #dcdde1;
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.column:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.column[data-status="todo"] {
+  border-top: 3px solid #64ffda;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(100, 255, 218, 0.1);
+}
+
+.column[data-status="doing"] {
+  border-top: 3px solid #ffa726;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(255, 167, 38, 0.1);
+}
+
+.column[data-status="done"] {
+  border-top: 3px solid #66bb6a;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(102, 187, 106, 0.1);
 }
 
 .column h3 {
   text-align: center;
-  margin-bottom: 1rem;
-  color: #2d3436;
-  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.column[data-status="todo"] h3 {
+  color: #64ffda;
+  text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+}
+
+.column[data-status="doing"] h3 {
+  color: #ffa726;
+  text-shadow: 0 0 10px rgba(255, 167, 38, 0.5);
+}
+
+.column[data-status="done"] h3 {
+  color: #66bb6a;
+  text-shadow: 0 0 10px rgba(102, 187, 106, 0.5);
 }
 
 .column-content {
@@ -77,61 +195,138 @@
 }
 
 .task-card {
-  background: #fff;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.25rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.task-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.5), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(100, 255, 218, 0.1);
+}
+
+.task-card:hover::before {
+  opacity: 1;
 }
 
 .task-card p {
-  margin: 0;
+  margin: 0 0 1rem 0;
   font-weight: 500;
-  color: #2d3436;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  color: #ffffff;
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
-.actions button {
-  padding: 0.4rem 0.7rem;
+.action-btn {
+  padding: 0.5rem 1rem;
   font-size: 0.85rem;
+  font-weight: 500;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
 }
 
-.actions button:hover {
-  opacity: 0.8;
+.todo-btn {
+  background: rgba(100, 255, 218, 0.2);
+  color: #64ffda;
+  border: 1px solid rgba(100, 255, 218, 0.3);
 }
 
-.actions button:nth-child(1) {
-  background-color: #74b9ff;
-  color: white;
+.todo-btn:hover {
+  background: rgba(100, 255, 218, 0.3);
+  box-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
 }
 
-.actions button:nth-child(2) {
-  background-color: #ffeaa7;
-  color: #2d3436;
+.doing-btn {
+  background: rgba(255, 167, 38, 0.2);
+  color: #ffa726;
+  border: 1px solid rgba(255, 167, 38, 0.3);
 }
 
-.actions button:nth-child(3) {
-  background-color: #55efc4;
-  color: #2d3436;
+.doing-btn:hover {
+  background: rgba(255, 167, 38, 0.3);
+  box-shadow: 0 0 15px rgba(255, 167, 38, 0.3);
 }
 
-.actions button:last-child {
-  background-color: #ff7675;
-  color: white;
+.done-btn {
+  background: rgba(102, 187, 106, 0.2);
+  color: #66bb6a;
+  border: 1px solid rgba(102, 187, 106, 0.3);
 }
+
+.done-btn:hover {
+  background: rgba(102, 187, 106, 0.3);
+  box-shadow: 0 0 15px rgba(102, 187, 106, 0.3);
+}
+
 .delete-btn {
-  background-color: #ff7675;
-  color: white;
+  background: rgba(244, 67, 54, 0.2);
+  color: #f44336;
+  border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+.delete-btn:hover {
+  background: rgba(244, 67, 54, 0.3);
+  box-shadow: 0 0 15px rgba(244, 67, 54, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem;
+  }
+  
+  .header-section h1 {
+    font-size: 2rem;
+  }
+  
+  .task-form {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .task-form input {
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  .task-columns {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .actions {
+    justify-content: center;
+  }
 }
